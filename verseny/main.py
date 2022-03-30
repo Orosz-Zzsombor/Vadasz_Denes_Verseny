@@ -54,11 +54,12 @@ def beallitasok_kep_2():
 
 def jatek_kep_1(dobas, ticks, dob):
     screen.blit(KIS_CIM, (60, kepernyo[1] / 50))
+    screen.blit(DOBAS_CIM, (60, kepernyo[1] / 8))
     megjelenit_gomb_jatek(szoveg_general('Kilépés', valtozo_szoveg_szinek[-1]), kepernyo[0]/2 - 230, -kepernyo[1]/2 + 55, -kepernyo[0]/2 + 300, valtozo_szoveg_szinek[-1])
     megjelenit_gomb_jatek(szoveg_general('Mentés', valtozo_szoveg_szinek[1]), kepernyo[0]/2 - 530, -kepernyo[1]/2 + 55, -kepernyo[0]/2 + 600, valtozo_szoveg_szinek[1])
     pygame.draw.rect(screen, valtozo_szoveg_szinek[2], pygame.Rect((kepernyo[0] / 2 - 180), kepernyo[1]/2 + 140, 360, 110), 4)
     screen.blit(dobas_szoveg_general('DOBÁS', valtozo_szoveg_szinek[2]), ((kepernyo[0] / 2 - 115), (kepernyo[1] / 2) + 150))
-    print(f"{dob} +2")
+
     if dobas:
         dobasa = kocka_kepek_megjelenit(dobas, ticks, dob)
         return dobasa
@@ -69,7 +70,6 @@ def jatek_kep_1(dobas, ticks, dob):
 def kocka_kepek_megjelenit(dobas, ticks, dobasok):
     if dobas:
         jelenlegi_dobasok = dobasok
-        print(dobasok)
         if ticks < 30:
             jelenlegi_dobasok[0] = str(random.randint(1, 6))
         if ticks < 60:
@@ -101,7 +101,6 @@ def kocka_kepek_megjelenit(dobas, ticks, dobasok):
         screen.blit(kep_0, (kepernyo[0] / 2 - 75, kepernyo[1] / 2 - 100))
         screen.blit(kep_0, (kepernyo[0] / 2 + 75, kepernyo[1] / 2 - 75))
         screen.blit(kep_0, (kepernyo[0] / 2 + 225, kepernyo[1] / 2 - 30))
-        print(f"{dobasok}+1")
 
 
 def pozicio(ertek_x, ertek_y):
@@ -176,8 +175,10 @@ valtozo_szoveg_szinek = [FOLYTATAS_GOMB[0], FEHER, FEHER, FEHER, FEHER, FEHER, F
 # szövegek, szövegek stílusai
 CIM_FONT = pygame.font.SysFont('Comic Sans MS', 142)
 KIS_CIM_FONT = pygame.font.SysFont('Comic Sans MS', 78)
+DOBAS_CIM_FONT = pygame.font.SysFont('Comic Sans MS', 54)
 IRAS_FONT = pygame.font.SysFont('Arial', 42)
 IRAS_FONT_DOBAS = pygame.font.SysFont('Comic Sans MS', 64)
+DOBAS_CIM = DOBAS_CIM_FONT.render('Kockák számai:', False, ZOLD)
 CIM = CIM_FONT.render('Kockapóker', False, ZOLD)
 KIS_CIM = KIS_CIM_FONT.render('Kockapóker', False, ZOLD)
 FELBONTASOK = ['1920x1050', '1600x900', '1360x768', '1280x720']
