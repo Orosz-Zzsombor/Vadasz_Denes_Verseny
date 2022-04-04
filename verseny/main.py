@@ -73,11 +73,12 @@ def kep_valtas_jateknal(tick):
 
 def tablazat_rajzol():
     FELIRATOK = ["Szemét", "2 egyforma", "3 egyforma", "2 pár", "4 egyforma", "2 + 3 egyforma", "Kis sor", "Nagy sor", "5 egyforma"]
-    for index in range(9):
-        pygame.draw.rect(screen, [230, 230, 230], pygame.Rect((kepernyo[0] / 2 - kepernyo[0] / 4), (kepernyo[1] / 2 - 110) + index * kepernyo[1]/16, kepernyo[0]/7.68, kepernyo[1]/16), 3)
-        screen.blit(comic_szoveget_letrehoz(FELIRATOK[index], [0, 230, 0], int(kepernyo[0]/60)), (kepernyo[0] / 2 - kepernyo[0] / 4 + 5, (kepernyo[1] / 2 - 110) + index * kepernyo[1]/16 + 10))
-    for index in range(9):
-        pass
+    for sor_index in range(9):
+        pygame.draw.rect(screen, [230, 230, 230], pygame.Rect(kepernyo[0] / 4, kepernyo[1]/2.8 + sor_index * kepernyo[1]/16, kepernyo[0]/7.68, kepernyo[1]/16 + 1), 3)
+        screen.blit(comic_szoveget_letrehoz(FELIRATOK[sor_index], [0, 230, 0], int(kepernyo[0]/60)), (kepernyo[0] / 2 - kepernyo[0] / 4 + 5, kepernyo[1]/2.8 + sor_index * kepernyo[1]/16 + 10))
+    for oszlop_index in range(2):
+        for sor_index in range(9):
+            pygame.draw.rect(screen, [230, 230, 230], pygame.Rect(kepernyo[0]/7.68 + kepernyo[0] / 4 + (oszlop_index * (kepernyo[0]/7.68 + kepernyo[0]/30)), kepernyo[1]/2.8 + sor_index * kepernyo[1] / 16, kepernyo[0] / 6, kepernyo[1] / 16 + 1), 3)
 
 
 def jatek_kep_2():
