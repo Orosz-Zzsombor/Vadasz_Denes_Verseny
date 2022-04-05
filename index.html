@@ -1,259 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Vadász Dénes</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 900, function () {
-                        window.location.hash = hash;
-                    });
-                }
-            });
-        })
-
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-
-        window.addEventListener("scroll", reveal);
+  <title>Vadász Dénes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dice-2" viewBox="0 0 16 16">
+    <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3z"/>
+    <path d="M5.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm8 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+  </svg>
+  
+  <script>
+    $(document).ready(function(){ 
+      $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+        if (this.hash !== ""){
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function(){
+            window.location.hash = hash;
+          });
+        } 
+      });
+    })
+    
+    function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } 
+  }}
+window.addEventListener("scroll", reveal);
     </script>
+    
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    color: #444444;
+    line-height: 2;
+  }
+  p {font-size: 16px;}
+  .margin {
+    margin-bottom: 20px;
+    color:brown;
+    
+  }
+  #cim{
+    font-size: 5rem;
+    font-family:Arial, Helvetica, sans-serif;
+  
+  }
+  .bg-1 { 
+    background-image: url(letoltes.jpg); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    height: 75rem; 
+    height: 79rem; 
 
-    <style>
-        body {
-            font: 20px Montserrat, sans-serif;
-            color: #444444;
-            line-height: 2;
+  }
+  .bg-2 { 
+    background: -webkit-linear-gradient(left, #252525, #626263);
+    color: #ffffff;
+ 
+  
+  }
+  .bg-3 { 
+    background:rgb(241, 241, 241); ; 
+    color: #555555;
+    
+  }
+  .bg-4 { 
+    background-color: #2f2f2f; 
+    color: #fff;
+ 
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: bolder;
+    background: -webkit-linear-gradient(left, #ffffff, #e2e2e5);
+    opacity: 0.9;
+   
+  }
+  .navbar-nav  li a:hover {
+    transition: .2s;
+    color: #1abc9c !important;
+    font-size:20px;
+  }
+  hr {
+    width: 50rem;
+    background-color: rgb(102, 98, 98),
+  }
+  #paragrafus {
+    text-align: justify;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  #cim2{
+    color:brown;
+    font-size: larger;
+  
+  }
+  .reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+#download {
+  background: -webkit-linear-gradient(left, #ffffff, #bfbfc2);
+}
+.kepek{
+  width: 6rem;
+  height: 6rem;
+}
+.szoveg{
+  margin-top: 20px;
+}
+th,td  {
+    text-align: center;
+    
 
-        }
+}
+#pont{
+    text-align: center;
+}
 
-        p {
-            font-size: 16px;
-        }
+.team{
+    color: brown;
+}
 
-        .margin {
-            margin-bottom: 20px;
-            color: rgb(163, 72, 72);
-
-
-
-        }
-
-        #cim {
-            font-size: 5rem;
-            font-family: Arial, Helvetica, sans-serif;
-
-        }
-
-        .bg-1 {
-            background-image: url(letoltes.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            color: #ffffff;
-            height: 79rem;
-
-        }
-
-        .bg-2 {
-            background: -webkit-linear-gradient(left, #252525, #626263);
-            color: #ffffff;
-
-
-        }
-
-        .bg-3 {
-            background-color: #ffffff;
-            color: #555555;
-
-        }
-
-        .bg-4 {
-            background-color: #2f2f2f;
-            color: #fff;
-
-
-        }
-
-        .container-fluid {
-            padding-top: 70px;
-            padding-bottom: 70px;
-        }
-
-        .navbar {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border: 0;
-            border-radius: 0;
-            margin-bottom: 0;
-            font-size: 16px;
-            letter-spacing: 4px;
-            font-weight: bolder;
-            background: -webkit-linear-gradient(left, #ffffff, #e2e2e5);
-            opacity: 0.9;
-
-        }
-
-        .navbar-nav li a:hover {
-            transition: .2s;
-            color: #1abc9c !important;
-            font-size: 20px;
-
-        }
-
-        hr {
-            width: 50rem;
-
-            background-color: rgb(102, 98, 98),
-        }
-
-        #paragrafus {
-            text-align: justify;
-            margin-left: 30px;
-            margin-right: 30px;
-        }
-
-        #cim2 {
-            color: brown;
-            font-size: larger;
-
-        }
-
-        .reveal {
-            position: relative;
-            transform: translateY(150px);
-            opacity: 0;
-            transition: 1s all ease;
-        }
-
-        .reveal.active {
-            transform: translateY(0);
-            opacity: 1;
-
-        }
-
-        #download {
-            background: -webkit-linear-gradient(left, #ffffff, #bfbfc2);
-        }
-
-        .team {
-            color: brown;
-            font-weight: bolder;
-            font-size: 25px;
-        }
-
-        .nevek {
-            font-size: 20px;
-            font-weight: bold;
-        }
-    </style>
+  </style>
 </head>
-
 <body>
 
-    <div id="vissza"></div>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header ">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand " href="#vissza" id="logo">LOGO</a>
-            </div>
-            <div class="collapse navbar-collapse " id="myNavbar">
-                <ul class="nav navbar-nav navbar-right ">
-                    <li><a href="#vissza">HOME</a></li>
-                    <li><a href="#rules">RULES</a></li>
-                    <li><a href="#foot">PROGRAM</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-
-    <div class="container-fluid bg-1 text-center">
-        <h3 class="margin" id="cim">Vadász Dénes Programozó Verseny</h3>
-        <h4 id="cim2">Kockapóker</h4>
-        <hr>
-        <img src="kocka.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Kockapóker"
-            width="475" height="475" id="kep">
+<div id="vissza"></div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand " href="#vissza" id="logo">LOGO</a>
     </div>
-
-    <p id="rules"></p>
-    <div class="container-fluid bg-2 text-center">
-        <h3 class="margin" id="szab">Szabályzat</h3>
-        <hr>
-        <div class="container reveal">
-            <p id="paragrafus">A játékot 5 darab 6 oldalú dobókockával játsszuk, és a játékosok felváltva dobnak az
-                összes kockával.
-                Minden dobás után a játékosnak ki kell töltenie a lentebb megadott szerkezetű táblázat valamely
-                mezőjét. Ha a dobása megfelel az adott mező szabályának, akkor beírja oda a dobott kombinációban
-                szereplő kockák pontértékét (például, ha van 2 db 3-as a dobások között, a párhoz beírhat 6 pontot).
-                Csak üres mezőbe lehet beírni, azaz, ha egy mezőt kitöltünk, azt az adott játékban már nem lehet
-                megváltoztatni. Ha egy eredmény többféle kombinációnak is megfelel, akkor a játékos eldönti, hogy
-                melyiket választja (például 4 db 1-est lehet párnak is írni 2 pontért, vagy drillnek 3 pontért, vagy kis
-                pókernek 4 pontért). Lehetséges, hogy egyik kombinációnak sem felelnek meg a kidobott értékek.
-                Ilyenkor is ki kell választani egy mezőt, és oda 0 pontot írni.
-                A játéknak akkor van vége, amikor minden játékos kitöltötte a táblázat minden mezőjét. Ekkor
-                összeszámoljuk a pontértékeket és az győz, aki a legnagyobb pontszámot érte el.</p>
-        </div>
-        <a href="folyamatabra.png" download>
-            <br><button class="btn btn-default btn-lg" id="download">Folyamatábra megtekintése</button>
-        </a>
+    <div class="collapse navbar-collapse " id="myNavbar">
+      <ul class="nav navbar-nav navbar-right ">
+        <li><a href="#vissza">HOME</a></li>
+        <li><a href="#ruls">RULES</a></li>
+        <li><a href="#foot">PROGRAM</a></li>
+      </ul>
     </div>
+  </div>
+  </div>    
+</nav>
 
-    <div class="container-fluid bg-3 text-center">
-        <h3 class="margin">A program működése </h3>
-        <hr>
-        <section>
-            <div class="container reveal">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <img src="placeholder.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-                    </div>
-                    <div class="col-sm-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <img src="placeholder.jpg" class="img-responsive margin" style="width:100%" alt="Image">
 
-                    </div>
-                    <div class="col-sm-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <img src="placeholder.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin" id="cim">Vadász Dénes Programozó Verseny</h3>
+  <h4 id="cim2">Kockapóker</h4>
+  <hr>
+  <img src="kocka.jpg" class="img-responsive img-circle margin" style="display:inline"  width="475" height="475" id="kep">
+</div>
+
+<p id="ruls"></p>
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin" id="szab">Szabályzat</h3>
+  <hr>
+  <div class="container reveal">
+  <p id="paragrafus">A játékot 5 darab 6 oldalú dobókockával játsszuk, és a játékosok felváltva dobnak az összes kockával.
+    Minden dobás után a játékosnak ki kell töltenie a lentebb megadott szerkezetű táblázat valamely
+    mezőjét. Ha a dobása megfelel az adott mező szabályának, akkor beírja oda a dobott kombinációban
+    szereplő kockák pontértékét (például, ha van 2 db 3-as a dobások között, a párhoz beírhat 6 pontot).
+    Csak üres mezőbe lehet beírni, azaz, ha egy mezőt kitöltünk, azt az adott játékban már nem lehet
+    megváltoztatni. Ha egy eredmény többféle kombinációnak is megfelel, akkor a játékos eldönti, hogy
+    melyiket választja (például 4 db 1-est lehet párnak is írni 2 pontért, vagy drillnek 3 pontért, vagy kis
+    pókernek 4 pontért). Lehetséges, hogy egyik kombinációnak sem felelnek meg a kidobott értékek.
+    Ilyenkor is ki kell választani egy mezőt, és oda 0 pontot írni.
+    A játéknak akkor van vége, amikor minden játékos kitöltötte a táblázat minden mezőjét. Ekkor
+    összeszámoljuk a pontértékeket és az győz, aki a legnagyobb pontszámot érte el.</p>
+  </div>
+  <a href="folyamatabra.png" download>
+    <br><button class="btn btn-default btn-lg" id="download">Folyamatábra megtekintése</button>
+    </a>
+</div>
+<div>
+    <div class="container reveal">
+  <h3 class="margin" id="pont">Pontozás</h3><hr>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Kombinációk</th>
+          <th scope="col">Példa</th>
+          <th scope="col">Pont</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Szemét</th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-2.png" class="kepek"><img src="kocka-3.png" class="kepek"><img src="kocka-4.png" class="kepek"><img src="kocka-6.png" class="kepek"></td>
+          <td>az 5 kocka értéke</td>
+        </tr>
+        <tr>
+          <th scope="row">Pár</th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-3.png" class="kepek"><img src="kocka-4.png" class="kepek"><img src="kocka-6.png" class="kepek"></td>
+          <td class="szoveg">két egyforma érték összege</td>
+        </tr>
+        <tr>
+          <th scope="row">Drill</th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-3.png" class="kepek"><img src="kocka-2.png" class="kepek"></td>
+          <td>három egyforma érték összege</td>
+        </tr>
+        <tr>
+          <th scope="row">2 Pár </th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-2.png" class="kepek"><img src="kocka-2.png" class="kepek"><img src="kocka-3.png" class="kepek"></td>
+          <td>két különböző értékből két-két egyforma érték összege</td>
+        </tr>
+        <tr>
+          <th scope="row">Kis póker</th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-5.png" class="kepek"></td>
+          <td>kis póker - négy egyforma érték összege</td>
+        </tr>
+        <tr>
+          <th scope="row">Full</th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-2.png" class="kepek"><img src="kocka-2.png" class="kepek"><img src="kocka-2.png" class="kepek"></td>
+          <td>két egyforma érték és három másik egyforma érték összege</td>
+        </tr>
+        <tr>
+          <th scope="row">Kis sor</th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-2.png" class="kepek"><img src="kocka-3.png" class="kepek"><img src="kocka-4.png" class="kepek"><img src="kocka-5.png" class="kepek"></td>
+          <td>15 pont</td>
+        </tr>
+        <tr>
+          <th scope="row">Nagy sor</th>
+          <td><img src="kocka-2.png" class="kepek"><img src="kocka-3.png" class="kepek"><img src="kocka-4.png" class="kepek"><img src="kocka-5.png" class="kepek"><img src="kocka-6.png" class="kepek"></td>
+          <td>20 pont</td>
+        </tr>
+        <tr>
+          <th scope="row">Nagy póker</th>
+          <td><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"><img src="kocka-1.png" class="kepek"></td>
+          <td>50 pont</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+</div>
+<div class="container-fluid bg-3 text-center">    
+  <h3 class="margin">A program működése </h3>
+  <hr>
+  <section>
+    <div class="container reveal">
+      <div class="row">
+        <div class="col-sm-4">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <img src="kep_menu.png" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4"> 
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <img src="kep1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      
+        </div>
+        <div class="col-sm-4"> 
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <img src="kep1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+      </div>
+    </div>
     </div>
     </section>
-
     <footer class="container-fluid bg-4 text-center">
 
         <div>
@@ -271,5 +309,4 @@
     </footer>
 
 </body>
-
 </html>
