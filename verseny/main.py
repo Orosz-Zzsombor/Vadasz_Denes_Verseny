@@ -72,21 +72,23 @@ def kep_valtas_jateknal(tick):
 
 
 def tablazat_rajzol():
+    lehetseges_pontok = pontok_szamitasa(dobasok)
+    ki_jatszik = "jatekos"
     FELIRATOK = ["Szemét", "2 egyforma", "3 egyforma", "2 pár", "4 egyforma", "2 + 3 egyforma", "Kis sor", "Nagy sor", "5 egyforma"]
     for sor_index in range(9):
         pygame.draw.rect(screen, [230, 230, 230], pygame.Rect(kepernyo[0] / 4, kepernyo[1]/2.8 + sor_index * kepernyo[1]/16, kepernyo[0]/7.68, kepernyo[1]/16 + 1), 3)
-        screen.blit(comic_szoveget_letrehoz(FELIRATOK[sor_index], [0, 230, 0], int(kepernyo[0]/60)), (kepernyo[0] / 2 - kepernyo[0] / 4 + 5, kepernyo[1]/2.8 + sor_index * kepernyo[1]/16 + 10))
+        screen.blit(comic_szoveget_letrehoz(FELIRATOK[sor_index], [0, 230, 0], int(kepernyo[0] / 60)), (kepernyo[0] / 2 - kepernyo[0] / 4 + 5, kepernyo[1] / 2.8 + sor_index * kepernyo[1] / 16 + 10))
     for oszlop_index in range(2):
         for sor_index in range(9):
-            pygame.draw.rect(screen, [230, 230, 230], pygame.Rect(kepernyo[0]/7.68 + kepernyo[0] / 4 + (oszlop_index * (kepernyo[0]/7.68 + kepernyo[0]/30)), kepernyo[1]/2.8 + sor_index * kepernyo[1] / 16, kepernyo[0] / 6, kepernyo[1] / 16 + 1), 3)
-
+            pygame.draw.rect(screen, [230, 230, 230], pygame.Rect(kepernyo[0]/7.68 + kepernyo[0] / 4 + (oszlop_index * (kepernyo[0]/7.68 + kepernyo[0]/28)), kepernyo[1]/2.8 + sor_index * kepernyo[1] / 16, kepernyo[0] / 6, kepernyo[1] / 16 + 1), 3)
+            if ki_jatszik == "jatekos" and oszlop_index == 0:
+                screen.blit(comic_szoveget_letrehoz(str(lehetseges_pontok[sor_index]), [150, 150, 150], int(kepernyo[0] / 60)), (kepernyo[0]/7.68 + kepernyo[0] / 4 + + kepernyo[0]/42 + (oszlop_index * (kepernyo[0]/7.68 + kepernyo[0]/28)), kepernyo[1]/2.8 + sor_index * kepernyo[1] / 16))
 
 def jatek_kep_2():
     jatek_nav_bar()
     dobas_szoveg = ""
     for szam in dobasok:
-        dobas_szoveg += szam + " "
-    print(dobas_szoveg)
+        dobas_szoveg += str(szam) + " "
     screen.blit(comic_szoveget_letrehoz(dobas_szoveg, FEHER, 48), (470, kepernyo[1] / 8 + 30))
     tablazat_rajzol()
 
@@ -95,31 +97,31 @@ def kocka_kepek_megjelenit(dobas, ticks, dobasok):
     if dobas:
         jelenlegi_dobasok = dobasok
         if ticks < 30:
-            jelenlegi_dobasok[0] = str(random.randint(1, 6))
+            jelenlegi_dobasok[0] = random.randint(1, 6)
         else:
             screen.blit(arial_szoveget_letrehoz(f'{jelenlegi_dobasok[0]}', PIROS, 42), (kepernyo[0] / 2 - 310, kepernyo[1]/2 - 100))
         if ticks < 60:
-            jelenlegi_dobasok[1] = str(random.randint(1, 6))
+            jelenlegi_dobasok[1] = random.randint(1, 6)
         else:
             screen.blit(arial_szoveget_letrehoz(f'{jelenlegi_dobasok[1]}', PIROS, 42), (kepernyo[0] / 2 - 160, kepernyo[1] / 2 - 145))
         if ticks < 90:
-            jelenlegi_dobasok[2] = str(random.randint(1, 6))
+            jelenlegi_dobasok[2] = random.randint(1, 6)
         else:
             screen.blit(arial_szoveget_letrehoz(f'{jelenlegi_dobasok[2]}', PIROS, 42), (kepernyo[0] / 2 - 10, kepernyo[1] / 2 - 170))
         if ticks < 120:
-            jelenlegi_dobasok[3] = str(random.randint(1, 6))
+            jelenlegi_dobasok[3] = random.randint(1, 6)
         else:
             screen.blit(arial_szoveget_letrehoz(f'{jelenlegi_dobasok[3]}', PIROS, 42), (kepernyo[0] / 2 + 140, kepernyo[1] / 2 - 145))
         if ticks < 150:
-            jelenlegi_dobasok[4] = str(random.randint(1, 6))
+            jelenlegi_dobasok[4] = random.randint(1, 6)
         else:
             screen.blit(arial_szoveget_letrehoz(f'{jelenlegi_dobasok[4]}', PIROS, 42), (kepernyo[0] / 2 + 290, kepernyo[1] / 2 - 100))
 
-        kep_1 = pygame.image.load(f'Images/kocka-{jelenlegi_dobasok[0]}.png')
-        kep_2 = pygame.image.load(f'Images/kocka-{jelenlegi_dobasok[1]}.png')
-        kep_3 = pygame.image.load(f'Images/kocka-{jelenlegi_dobasok[2]}.png')
-        kep_4 = pygame.image.load(f'Images/kocka-{jelenlegi_dobasok[3]}.png')
-        kep_5 = pygame.image.load(f'Images/kocka-{jelenlegi_dobasok[4]}.png')
+        kep_1 = pygame.image.load(f'Images/kocka-{str(jelenlegi_dobasok[0])}.png')
+        kep_2 = pygame.image.load(f'Images/kocka-{str(jelenlegi_dobasok[1])}.png')
+        kep_3 = pygame.image.load(f'Images/kocka-{str(jelenlegi_dobasok[2])}.png')
+        kep_4 = pygame.image.load(f'Images/kocka-{str(jelenlegi_dobasok[3])}.png')
+        kep_5 = pygame.image.load(f'Images/kocka-{str(jelenlegi_dobasok[4])}.png')
         try:
             screen.blit(kep_1, (kepernyo[0] / 2 - 375, kepernyo[1] / 2 - 30))
             screen.blit(kep_2, (kepernyo[0] / 2 - 225, kepernyo[1] / 2 - 75))
@@ -192,13 +194,103 @@ def arial_betu_font(pt):  # Arial betűtípus és font nagyság szöveghez
     return pygame.font.SysFont('Arial', pt)
 
 
-def comic_szoveget_letrehoz(szoveg, szin, pt):  # comic
+def comic_szoveget_letrehoz(szoveg, szin, pt):  # comic szöveg generálás
     return comic_betu_font(pt).render(szoveg, False, szin)
 
 
-def arial_szoveget_letrehoz(szoveg, szin, pt):
+def arial_szoveget_letrehoz(szoveg, szin, pt):  # arial szöveg generálás
     return arial_betu_font(pt).render(szoveg, False, szin)
 
+
+def pontok_szamitasa(szamok):
+    return [szemet(szamok), ket_egyforma(szamok), harom_egyforma(szamok), ket_par(szamok), negy_egyforma(szamok), ket_es_harom_egyforma(szamok), kis_sor(szamok), nagy_sor(szamok), ot_egyforma(szamok)]
+
+
+def szemet(dobott_szamok):
+    return sum(dobott_szamok)
+
+
+def ket_egyforma(dobott_szamok):
+    legnagyobb_talalat = 0
+    for szam in dobott_szamok:
+        talalat = dobott_szamok.count(szam)
+        if talalat > 1:
+            if szam + szam > legnagyobb_talalat:
+                legnagyobb_talalat = szam + szam
+    return legnagyobb_talalat
+
+
+def harom_egyforma(dobott_szamok):
+    legnagyobb_talalat = 0
+    for szam in dobott_szamok:
+        talalat = dobott_szamok.count(szam)
+        if talalat > 2:
+            legnagyobb_talalat = szam*3
+            break
+    return legnagyobb_talalat
+
+
+def ket_par(dobott_szamok):
+    talalatok = 0
+    eredmeny = 0
+    volt_szam = []
+    for szam in dobott_szamok:
+        talalat = dobott_szamok.count(szam)
+        if talalat > 1 and szam not in volt_szam:
+            talalatok += 1
+            volt_szam.append(szam)
+            if talalatok == 2:
+                eredmeny += volt_szam[0]*2 + volt_szam[1]*2
+    return eredmeny
+
+
+def negy_egyforma(dobott_szamok):
+    eredmeny = 0
+    for szam in dobott_szamok:
+        talalat = dobott_szamok.count(szam)
+        if talalat > 3:
+            eredmeny = szam*4
+            break
+    return eredmeny
+
+
+def ket_es_harom_egyforma(dobott_szamok):
+    volt_szam = [0, 0]
+    talalatok = [False, False]
+    for szam in dobott_szamok:
+        talalat = dobott_szamok.count(szam)
+        if talalat == 2:
+            volt_szam[0] = szam
+            talalatok[0] = True
+        if talalat == 3:
+            volt_szam[1] = szam
+            talalatok[1] = True
+    if talalatok[0] and talalatok[1]:
+        return volt_szam[0]*2 + volt_szam[1]*3
+    else:
+        return 0
+
+
+def kis_sor(dobott_szamok):
+    if all(x in dobott_szamok for x in [1, 2, 3, 4, 5]):
+        return 15
+    else:
+        return 0
+
+
+def nagy_sor(dobott_szamok):
+    if all(x in dobott_szamok for x in [2, 3, 4, 5, 6]):
+        return 20
+    else:
+        return 0
+
+
+def ot_egyforma(dobott_szamok):
+    talalat = dobott_szamok.count(dobott_szamok[0])
+    if talalat == 5:
+        return 50
+    else:
+        return 0
 
 # VÁLTOZÓK ÉS KONSTANSOK
 
@@ -328,7 +420,6 @@ while not done:
 
     if jelenlegi_kepernyo == 3:  # JÁTÉK PROGRAMJA megjelenése
         screen.fill((0, 0, 0))
-        print(f"{dobasok}")
         if jatek_kepernyo == 1:
             if dobas_van_e:
                 dobasok = jatek_kep_1(dobas_van_e, ticks, dobasok)
