@@ -222,26 +222,29 @@
         <h3 class="margin" id="szab">Szabályzat</h3>
         <hr>
         <div class="container reveal">
-            <p id="paragrafus">A játékot öt hatoldalú kockával játsszák, és a játékosok felváltva dobják az összes kockát.
-                Minden dobás után a játékosnak ki kell töltenie a következő táblázatszerkezetek egyikét
-                a következőket. Ha a dobása megfelel az adott négyzetben lévő szabálynak, akkor a következő kombinációt írja be a négyzetbe
-                (pl. ha 2 3-as van a dobásban, akkor 6 pontot adhatsz meg a párosért).
-                Csak üres mezőt adhatsz meg, azaz ha egyszer már kitöltöttél egy mezőt, akkor azt az aktuális játékban már nem használhatod.
-                megváltoztatni ugyanabban a játékban. Ha egy eredmény egynél több kombinációval egyezik meg, a játékosnak kell eldöntenie, hogy
-                melyiket válasszuk (pl. 4 1-es írható párként 2 pontért, vagy triplaként 3 pontért, vagy egy kis
-                4 pont). Lehetséges, hogy egyik kombináció sem egyezik a dobott értékekkel.
-                Ebben az esetben ki kell választani egy mezőt, és 0 pontot kell beírni.
-                A játék akkor ér véget, ha minden játékos kitöltötte a táblázat összes mezőjét. Ezen a ponton
-                a pontértékek összeadódnak, és a legmagasabb pontszámot elérő játékos nyer.</p>
+            <p id="paragrafus">A játékosok felváltva dobnak.
+                Aki dob, az 5 kockával dob,
+                Az 1-3 dobás végeredménye alapján a játékos eldönti, hogy a táblázat melyik mezőjét tölti ki. Ha a
+                dobása megfelel az adott mező szabályának, akkor beírja oda a dobott kombinációban szereplő kockák
+                pontértékét. (Pl. ha 2 db 3-asnál a párhoz beír 4 pontot.)
+                Ahová egy eredmény bekerül, azt később nem lehet javítani.
+                Ha egy eredmény többféle kombinációnak is megfelel, akkor a játékos eldönti, hogy melyiket választja.
+                (Pl. 4db 1-est lehet párnak is írni 2 pontért, vagy drillnek 3 pontért, vagy kis pókernek 4 pontért, de
+                nyilván minél kisebb kombinációba érdemes ilyen kis értéket beírni és megpróbálni a kis pókerből pl.
+                inkább 4x6=24 pontot elérni.
+                Lehet olyan kombinációt is választani, aminek az eredmény nem felel meg, de akkor oda 0 pontot kell
+                beírni és később nem lehet oda más eredményt beírni.A játéknak akkor van vége, amikor mindenkinek minden
+                mezőjét felhasználta. Ekkor összeszámoljuk a pontértékeket és az győz, aki a legnagyobb pontszámot érte
+                el.</p>
         </div>
-        
+
         <a href="folyamatabra.png" download>
             <br><button class="btn btn-default btn-lg" id="download">Folyamatábra megtekintése</button>
         </a>
         <p id="pontozas"></p>
-    </div >
-    
-    <div >
+    </div>
+
+    <div>
         <div class="container reveal">
             <h3 class="margin" id="pont">Pontozás</h3>
             <hr>
@@ -328,20 +331,22 @@
             <div class="container reveal">
                 <div class="row">
                     <div class="col-sm-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <img src="dobas.gif" class="img-responsive margin" style="width:100%" alt="Image">
+                        <p>A fejlesztői környezetnek a PyCharmot választottuk, így pyhtonban lett elkészítve, a Pygame modullal.</p>
+                        <a href="kod.png" target="_blank">
+                            <img src="kod.png" class="img-responsive margin" style="width:100%" alt="Image">
+                        </a>
                     </div>
                     <div class="col-sm-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <img src="dobas.gif" class="img-responsive margin" style="width:100%" alt="Image">
-
+                        <p>A Kockapóker alkalmazás menüjében tudod elindítani vagy folytatni a megkezdett játékot.</p>
+                        <a href="menu.png" target="_blank">
+                            <img src="menu.png" class="img-responsive margin" style="width:100%" alt="Image">
+                        </a>
                     </div>
                     <div class="col-sm-4">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                        <img src="dobas.gif" class="img-responsive margin" style="width:100%" alt="Image">
+                        <p>A játék tartalmaz animált véletlenszerű számgenerálást is, amelyeket a pontozó tábla is felhasznál.</p>
+                        <a href="dobas.gif" target="_blank">
+                            <img src="dobas.gif" class="img-responsive margin" style="width:100%" alt="Image">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -359,7 +364,6 @@
 
         <a href="#vissza" id="#myPage" title="To Top">
             <span class="glyphicon glyphicon-chevron-up"></span>
-
         </a>
 
     </footer>
